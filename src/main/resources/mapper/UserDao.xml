@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.jeff.bi.repository.UserDao">
+    <resultMap id="User" type="com.jeff.bi.repository.po.User" >
+        <result column="uid" property="uid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="wxid" property="wxid" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="real_name" property="realName" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="nick_name" property="nickName" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="birthday" property="birthday" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+        <result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="address" property="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="wx_name" property="wxName" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="login_name" property="loginName" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="phone1" property="phone1" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="phone2" property="phone2" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="phone3" property="phone3" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="id_card_no" property="idCardNo" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="head_pic" property="headPic" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="account" property="account" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="score" property="score" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="last_login_time" property="lastLoginTime" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="source" property="source" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="user_type" property="userType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="isdel" property="isdel" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="getUserByName" parameterType="java.lang.String"  resultMap="User" >
+        select * from bi.user where real_name=#{userName}
+    </select>
+</mapper>
